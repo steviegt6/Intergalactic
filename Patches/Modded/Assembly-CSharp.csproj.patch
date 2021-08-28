@@ -1,8 +1,31 @@
-@@ -68,4 +68,7 @@
+@@ -10,9 +10,15 @@
+   </PropertyGroup>
+   <PropertyGroup />
+   <ItemGroup>
+-    <PackageReference Include="System.ValueTuple" Version="4.5.0" />
+-  </ItemGroup>
+-  <ItemGroup>
++    <Reference Include="System.Configuration">
++      <HintPath>Libraries\System.Configuration.dll</HintPath>
++    </Reference>
++    <Reference Include="System.Security">
++      <HintPath>Libraries\System.Security.dll</HintPath>
++    </Reference>
++    <Reference Include="System.ServiceModel.Internals">
++      <HintPath>Libraries\System.ServiceModel.Internals.dll</HintPath>
++    </Reference>
+     <Reference Include="UnityEngine">
+       <HintPath>Libraries\UnityEngine.dll</HintPath>
+     </Reference>
+@@ -67,5 +73,11 @@
+     <Reference Include="UnityEngine.JSONSerializeModule">
        <HintPath>Libraries\UnityEngine.JSONSerializeModule.dll</HintPath>
      </Reference>
-   </ItemGroup>
++  </ItemGroup>
 +  <ItemGroup>
 +    <Folder Include="ModLoader\" />
 +  </ItemGroup>
++  <ItemGroup>
++    <PackageReference Include="System.ValueTuple" Version="4.5.0" />
+   </ItemGroup>
  </Project>
