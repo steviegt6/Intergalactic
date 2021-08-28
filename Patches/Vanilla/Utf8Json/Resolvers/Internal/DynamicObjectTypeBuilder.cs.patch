@@ -1,3 +1,9 @@
-@@ -113,1 +113,1 @@
+@@ -110,7 +110,7 @@
+ 
+ 			public static readonly MethodInfo TypeGetField = ExpressionUtility.GetMethodInfo((Type t) => t.GetField(null, BindingFlags.Default));
+ 
 -			public static readonly MethodInfo GetCustomAttributeJsonFormatterAttribute = ExpressionUtility.GetMethodInfo(() => ((MemberInfo)null).GetCustomAttribute<JsonFormatterAttribute>(inherit: false));
 +			public static readonly MethodInfo GetCustomAttributeJsonFormatterAttribute = ExpressionUtility.GetMethodInfo((Type t) => t.GetCustomAttribute<JsonFormatterAttribute>(false));
+ 
+ 			public static readonly MethodInfo ActivatorCreateInstance = ExpressionUtility.GetMethodInfo(() => Activator.CreateInstance((Type)null, (object[])null));
+ 

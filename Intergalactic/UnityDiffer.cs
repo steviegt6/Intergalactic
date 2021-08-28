@@ -45,9 +45,7 @@ namespace Intergalactic
 
             LineMatchedDiffer differ = new() { MaxMatchOffset = 10 };
             await toDiff.DoEnumerableAsync(p => Diff(differ, origin.FullName, updated.FullName, patches.FullName, p));
-
             await toCreate.DoAsync(p => WriteCreatePatch(updated.FullName, patches.FullName, p));
-
             await toDelete.DoAsync(p => WriteDeletePatch(patches.FullName, p));
 
             // threads.Do(t => t.Start());
@@ -86,8 +84,7 @@ namespace Intergalactic
             if (!File.Exists(destinationPath))
                 return;
 
-            PatchFile diff = differ.DiffFile(Path.Combine(originalRoot, shortName), destinationPath,
-                numContextLines: 0, includePaths: false);
+            PatchFile diff = differ.DiffFile(Path.Combine(originalRoot, shortName), destinationPath, 3, includePaths: false);
 
             if (!diff.IsEmpty)
             {

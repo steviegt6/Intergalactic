@@ -1,3 +1,9 @@
-@@ -247,1 +247,1 @@
+@@ -244,7 +244,7 @@
+ 
+ 	public override int GetHashCode()
+ 	{
 -		return (387443751 * -1521134297 + Pos.GetHashCode()) * -1521134353 + Layer.GetHashCode();
 +		unchecked { return (387443751 * -1521134297 + Pos.GetHashCode()) * -1521134353 + Layer.GetHashCode(); }
+ 	}
+ 
+ 	public bool Equals(BlockPos other)
