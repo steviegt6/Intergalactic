@@ -1,0 +1,3 @@
+@@ -113,1 +113,1 @@
+-			public static readonly MethodInfo GetCustomAttributeJsonFormatterAttribute = ExpressionUtility.GetMethodInfo(() => ((MemberInfo)null).GetCustomAttribute<JsonFormatterAttribute>(inherit: false));
++			public static readonly MethodInfo GetCustomAttributeJsonFormatterAttribute = ExpressionUtility.GetMethodInfo((Type t) => t.GetCustomAttribute<JsonFormatterAttribute>(false));

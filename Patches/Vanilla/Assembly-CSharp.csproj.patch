@@ -1,0 +1,61 @@
+@@ -5,1 +5,1 @@
+-    <TargetFramework>net40</TargetFramework>
++    <TargetFramework>net46</TargetFramework>
+@@ -12,2 +12,7 @@
+-  <ItemGroup />
+-  <ItemGroup>
++  <ItemGroup>
++    <PackageReference Include="System.ValueTuple" Version="4.5.0" />
++  </ItemGroup>
++  <ItemGroup>
++    <Reference Include="UnityEngine">
++      <HintPath>Libraries\UnityEngine.dll</HintPath>
++    </Reference>
+@@ -15,1 +20,1 @@
+-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Outworlder Playtest\Outworlder_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
++      <HintPath>Libraries\UnityEngine.CoreModule.dll</HintPath>
+@@ -18,1 +23,1 @@
+-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Outworlder Playtest\Outworlder_Data\Managed\Sirenix.Serialization.dll</HintPath>
++      <HintPath>Libraries\Sirenix.Serialization.dll</HintPath>
+@@ -21,1 +26,1 @@
+-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Outworlder Playtest\Outworlder_Data\Managed\UnityEngine.UI.dll</HintPath>
++      <HintPath>Libraries\UnityEngine.UI.dll</HintPath>
+@@ -24,1 +29,1 @@
+-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Outworlder Playtest\Outworlder_Data\Managed\UnityEngine.Physics2DModule.dll</HintPath>
++      <HintPath>Libraries\UnityEngine.Physics2DModule.dll</HintPath>
+@@ -28,1 +33,1 @@
+-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Outworlder Playtest\Outworlder_Data\Managed\UnityEngine.AnimationModule.dll</HintPath>
++      <HintPath>Libraries\UnityEngine.AnimationModule.dll</HintPath>
+@@ -31,1 +36,1 @@
+-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Outworlder Playtest\Outworlder_Data\Managed\UnityEngine.UIModule.dll</HintPath>
++      <HintPath>Libraries\UnityEngine.UIModule.dll</HintPath>
+@@ -34,1 +39,1 @@
+-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Outworlder Playtest\Outworlder_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
++      <HintPath>Libraries\UnityEngine.TextRenderingModule.dll</HintPath>
+@@ -37,1 +42,1 @@
+-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Outworlder Playtest\Outworlder_Data\Managed\UnityEngine.AudioModule.dll</HintPath>
++      <HintPath>Libraries\UnityEngine.AudioModule.dll</HintPath>
+@@ -40,1 +45,1 @@
+-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Outworlder Playtest\Outworlder_Data\Managed\UnityEngine.ParticleSystemModule.dll</HintPath>
++      <HintPath>Libraries\UnityEngine.ParticleSystemModule.dll</HintPath>
+@@ -43,1 +48,1 @@
+-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Outworlder Playtest\Outworlder_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
++      <HintPath>Libraries\UnityEngine.IMGUIModule.dll</HintPath>
+@@ -48,1 +53,1 @@
+-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Outworlder Playtest\Outworlder_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
++      <HintPath>Libraries\Assembly-CSharp-firstpass.dll</HintPath>
+@@ -51,1 +56,1 @@
+-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Outworlder Playtest\Outworlder_Data\Managed\Facepunch.Steamworks.Win64.dll</HintPath>
++      <HintPath>Libraries\Facepunch.Steamworks.Win64.dll</HintPath>
+@@ -54,1 +59,1 @@
+-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Outworlder Playtest\Outworlder_Data\Managed\UnityEngine.UnityWebRequestModule.dll</HintPath>
++      <HintPath>Libraries\UnityEngine.UnityWebRequestModule.dll</HintPath>
+@@ -57,1 +62,1 @@
+-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Outworlder Playtest\Outworlder_Data\Managed\UnityEngine.InputLegacyModule.dll</HintPath>
++      <HintPath>Libraries\UnityEngine.InputLegacyModule.dll</HintPath>
+@@ -60,1 +65,1 @@
+-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Outworlder Playtest\Outworlder_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
++      <HintPath>Libraries\UnityEngine.PhysicsModule.dll</HintPath>
+@@ -63,1 +68,1 @@
+-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Outworlder Playtest\Outworlder_Data\Managed\UnityEngine.JSONSerializeModule.dll</HintPath>
++      <HintPath>Libraries\UnityEngine.JSONSerializeModule.dll</HintPath>

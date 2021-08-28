@@ -1,0 +1,3 @@
+@@ -247,1 +247,1 @@
+-		return (387443751 * -1521134297 + Pos.GetHashCode()) * -1521134353 + Layer.GetHashCode();
++		unchecked { return (387443751 * -1521134297 + Pos.GetHashCode()) * -1521134353 + Layer.GetHashCode(); }

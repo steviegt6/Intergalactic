@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ManagedPatcher\ManagedPatcher\ManagedPatcher.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="DiffPatch">
+      <HintPath>..\ManagedPatcher\Assatur\Libs\DiffPatch.dll</HintPath>
+    </Reference>
+    <Reference Include="Webmilio.Commons">
+      <HintPath>..\ManagedPatcher\Assatur\Libs\Webmilio.Commons.dll</HintPath>
+    </Reference>
+    <Reference Include="Webmilio.Commons.Console">
+      <HintPath>..\ManagedPatcher\Assatur\Libs\Webmilio.Commons.Console.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
