@@ -3,6 +3,7 @@
 // GNU General Public License Version 3, 29 June 2007
 #endregion
 
+using System;
 using System.IO;
 using System.Threading.Tasks;
 using ICSharpCode.Decompiler;
@@ -17,8 +18,9 @@ namespace Intergalactic
     {
         public Task DecompileFile(string from, string to)
         {
-            if (!Directory.Exists(to))
-                Directory.CreateDirectory(to);
+            Directory.CreateDirectory(to);
+
+            Console.WriteLine($"Decompiling from {from} to {to}.");
 
             using PEFile module = new(from);
             UniversalAssemblyResolver resolver = new(from, false, module.Reader.DetectTargetFrameworkId());

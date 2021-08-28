@@ -1,0 +1,8 @@
+@@ -68,4 +68,7 @@
+       <HintPath>Libraries\UnityEngine.JSONSerializeModule.dll</HintPath>
+     </Reference>
+   </ItemGroup>
++  <ItemGroup>
++    <Folder Include="ModLoader\" />
++  </ItemGroup>
+ </Project>

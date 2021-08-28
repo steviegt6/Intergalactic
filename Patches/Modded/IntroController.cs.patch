@@ -1,0 +1,17 @@
+@@ -1,5 +1,6 @@
+ using System;
+ using System.Collections;
++using ModLoader;
+ using UnityEngine;
+ using UnityEngine.SceneManagement;
+ using UnityEngine.UI;
+@@ -68,7 +69,8 @@
+ 	{
+ 		SceneManager.LoadScene("OptionsScreen", LoadSceneMode.Additive);
+ 		GameData gameData = Resources.Load<GameData>("GameData/Default Game Data");
+-		versionLabel.text = "Outworlder " + gameData.version;
++		versionLabel.text = $"Outworlder {gameData.version}\nIntergalactic v{Intergalactic.LoaderVersion}";
++		versionLabel.transform.localPosition = new Vector3(versionLabel.transform.localPosition.x, versionLabel.transform.localPosition.y + 20);
+ 		versionLabel.gameObject.SetActive(value: false);
+ 		anim.enabled = false;
+ 		loginMenu.Initialize(delegate(bool connectionSuccess)

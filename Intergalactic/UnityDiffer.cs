@@ -25,6 +25,13 @@ namespace Intergalactic
 
         public async Task DiffFolders(DirectoryInfo origin, DirectoryInfo updated, DirectoryInfo patches)
         {
+            // ensure all folders exist
+            origin.Create();
+            updated.Create();
+            patches.Create();
+
+            Console.WriteLine($"Diffing {origin} to {updated} using {patches}.");
+
             string[] originalFiles = Directory.GetFiles(origin.FullName, "*.*", SearchOption.AllDirectories);
             string[] updatedFiles = Directory.GetFiles(updated.FullName, "*.*", SearchOption.AllDirectories);
 
@@ -79,17 +86,26 @@ namespace Intergalactic
 
         private async Task Diff(Differ differ, string originalRoot, string destinationRoot, string patchRoot, string shortName)
         {
-            string destinationPath = Path.Combine(destinationRoot, shortName);
-
-            if (!File.Exists(destinationPath))
-                return;
-
-            PatchFile diff = differ.DiffFile(Path.Combine(originalRoot, shortName), destinationPath, 3, includePaths: false);
-
-            if (!diff.IsEmpty)
+            try
             {
-                shortName += PatchExtension;
-                await WriteDiffPatch(patchRoot, shortName, diff.ToString());
+                Console.WriteLine($"Diff data: {originalRoot}, {destinationRoot}. {patchRoot}, {shortName}");
+
+                string destinationPath = Path.Combine(destinationRoot, shortName);
+
+                if (!File.Exists(destinationPath))
+                    return;
+
+                PatchFile diff = differ.DiffFile(Path.Combine(originalRoot, shortName), destinationPath, 3,
+                    includePaths: false);
+
+                if (!diff.IsEmpty)
+                {
+                    shortName += PatchExtension;
+                    await WriteDiffPatch(patchRoot, shortName, diff.ToString());
+                }
+            }
+            catch (Exception e) {
+                Console.WriteLine($"Diff failed due to exception with {shortName}: {e}");
             }
         }
 

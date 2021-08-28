@@ -40,9 +40,12 @@ namespace Intergalactic
                 Console.WriteLine("Select mode: vanilla, modded");
                 mode = Console.ReadLine()!.ToLower();
 
-                if (mode is not "vanilla" or "modded")
+                if (mode != "vanilla" && mode != "modded")
                     throw new Exception("Invalid mode");
             }
+
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            static DirectoryInfo ToDi(string str) => new(str);
 
             switch (command)
             {
@@ -95,7 +98,10 @@ namespace Intergalactic
                             Directory.CreateDirectory(Path.Combine(root, "Modded"));
                             string[] vFiles = Directory.GetFiles(Path.Combine(root, "Vanilla"), "*.*", SearchOption.AllDirectories);
                             foreach (string file in vFiles)
-                                File.Copy(file, file.Replace(Path.GetDirectoryName(file)!, Path.Combine(root, "Modded")), true);
+                            {
+                                Directory.CreateDirectory(Path.GetDirectoryName(file.Replace(Path.Combine(root, "Vanilla"), Path.Combine(root, "Modded")))!);
+                                File.Copy(file, file.Replace(Path.Combine(root, "Vanilla"), Path.Combine(root, "Modded")), true);
+                            }
 
                             // patch modded files
                             await Main(new[] { root, "patch", "modded", locationSs });
@@ -125,9 +131,6 @@ namespace Intergalactic
                             break;
                     }
 
-                    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-                    static DirectoryInfo ToDi(string str) => new(str);
-
                     await new UnityDiffer().DiffFolders(ToDi(Path.Combine(root, sourceDiff)), ToDi(Path.Combine(root, outputDiff)), ToDi(Path.Combine(root, pathLoc)));
                     break;
 
@@ -148,7 +151,7 @@ namespace Intergalactic
                             break;
                     }
                     
-                    await ManagedPatcher.Program.Main(new[] {"patch", Path.Combine(root, destination), Path.Combine(root, patches)});
+                    await new UnityPatcher().Patch(ToDi(Path.Combine(root, patches)), ToDi(Path.Combine(root, destination)));
                     break;
 
                 case "decompile":
