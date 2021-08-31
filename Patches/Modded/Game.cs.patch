@@ -1,0 +1,17 @@
+@@ -10,6 +10,7 @@
+ using Assets.Scripts.Network.Messages;
+ using Assets.Scripts.Network.Server;
+ using Assets.Scripts.UI;
++using ModLoader;
+ using UnityEngine;
+ 
+ public sealed class Game
+@@ -161,6 +162,8 @@
+ 				Debug.LogError(innerException.Message + " " + innerException.StackTrace);
+ 			}
+ 		}, TaskContinuationOptions.OnlyOnFaulted);
++        Intergalactic.LoadModAssemblies();
++		Intergalactic.LoadLoadablesFromAssemblies();
+ 	}
+ 
+ 	private async Task UpdateLoadingMessageAsync(string message)
