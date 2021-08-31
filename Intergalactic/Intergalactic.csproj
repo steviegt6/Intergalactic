@@ -6,18 +6,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ManagedPatcher\ManagedPatcher\ManagedPatcher.csproj" />
+    <ProjectReference Include="..\Assatur\Tools\ModdingToolkit\ModdingToolkit.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Reference Include="DiffPatch">
-      <HintPath>..\ManagedPatcher\Assatur\Libs\DiffPatch.dll</HintPath>
+      <HintPath>..\Assatur\Libs\DiffPatch.dll</HintPath>
     </Reference>
     <Reference Include="Webmilio.Commons">
-      <HintPath>..\ManagedPatcher\Assatur\Libs\Webmilio.Commons.dll</HintPath>
+      <HintPath>..\Assatur\Libs\Webmilio.Commons.dll</HintPath>
     </Reference>
     <Reference Include="Webmilio.Commons.Console">
-      <HintPath>..\ManagedPatcher\Assatur\Libs\Webmilio.Commons.Console.dll</HintPath>
+      <HintPath>..\Assatur\Libs\Webmilio.Commons.Console.dll</HintPath>
     </Reference>
   </ItemGroup>
 
