@@ -20,6 +20,10 @@ namespace Intergalactic
         public const string DeleteExtension = ".d";
         public const string CreateExtension = ".c";
 
+        // Currently only checks file extensions
+        // TODO: Make this not suck?
+        public readonly List<string> FilesToIgnoreDiff = new() { ".dll" };
+
         public async Task DiffFolders(DirectoryInfo origin, DirectoryInfo updated, DirectoryInfo patches)
         {
             // ensure all folders exist
@@ -35,7 +39,7 @@ namespace Intergalactic
             List<string> strippedOriginal = SelectFilter(originalFiles, origin);
             List<string> strippedUpdated = SelectFilter(updatedFiles, updated);
 
-            IList<string> toDiff = strippedOriginal;
+            IList<string> toDiff = strippedOriginal.Where(x => !FilesToIgnoreDiff.Any(x.EndsWith)).ToList();
             IList<string> toCreate = strippedUpdated
                 .Where(su => !strippedOriginal.Any(so => so.Equals(su, StringComparison.OrdinalIgnoreCase))).ToArray();
             IList<string> toDelete = strippedOriginal
