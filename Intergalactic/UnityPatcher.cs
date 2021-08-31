@@ -43,7 +43,7 @@ namespace Intergalactic
             DirectoryInfo destFolder = destination.Combine(Path.GetDirectoryName(shortName));
             destFolder.Create();
 
-            string? extension = Path.GetExtension(shortName);
+            string extension = Path.GetExtension(shortName);
             FileInfo destFile = new(destFolder.CombineString(Path.GetFileNameWithoutExtension(shortName)));
 
             Console.WriteLine($"Applying {shortName}");
@@ -53,17 +53,18 @@ namespace Intergalactic
                 // This is probably inefficient and could be replaced with Streams (Readers/Writers) but the current
                 // implementation of DiffPatch kinda sucks :/
                 FilePatcher patchFile = FilePatcher.FromPatchFile(patch.ToString());
-                string[] lines = new Patcher(patchFile.PatchFile.Patches, await File.ReadAllLinesAsync(destFile.ToString()))
-                    .Patch(default)
-                    .ResultLines;
+                string[] lines =
+                    new Patcher(patchFile.PatchFile.Patches, await File.ReadAllLinesAsync(destFile.ToString()))
+                        .Patch(default)
+                        .ResultLines;
 
                 await File.WriteAllLinesAsync(destFile.FullName, lines);
             }
             else
             {
                 destFile = new FileInfo(Path.Combine(
-                        destFile.DirectoryName!,
-                        Path.GetFileNameWithoutExtension(destFile.Name)));
+                    destFile.DirectoryName!,
+                    Path.GetFileNameWithoutExtension(destFile.Name)));
 
                 switch (extension)
                 {
@@ -82,10 +83,7 @@ namespace Intergalactic
             }
         }
 
-
-        public static async Task StandardPatch(IPatcher patcher, ILocationStore loc)
-        {
+        public static async Task StandardPatch(IPatcher patcher, ILocationStore loc) =>
             await patcher.Patch(loc.Patches, loc.DecompAssatur);
-        }
     }
 }
